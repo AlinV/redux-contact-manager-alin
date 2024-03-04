@@ -1,25 +1,19 @@
-import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react"
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Contacts, Home } from './pages';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home></Home>,
+  },
+  {
+    path: '/contacts',
+    element: <Contacts></Contacts>,
+  },
+]);
 
 function App() {
-  const [name, setName] = useState('')
-
-  useEffect(()=>{
-axios.get('http://localhost:3000/profile').then((response)=>{
-const {data} = response;
-
-setName(data.name)
-})
-  },[]);
-
-  return (
-    <>
-     <h1 className="text-3xl font-bold underline">{
-      name.trim().length <= 0 ? '...loading' : name
-     }</h1>
-    </>
-  )
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
-export default App
+export default App;
