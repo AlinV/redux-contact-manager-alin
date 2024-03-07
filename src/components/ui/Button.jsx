@@ -9,9 +9,13 @@ const skins = {
 };
 
 export const Button = ({
+  // eslint-disable-next-line react/prop-types
   element = 'button',
+  // eslint-disable-next-line react/prop-types
   children,
+  // eslint-disable-next-line react/prop-types
   skin = 'primary',
+  // eslint-disable-next-line react/prop-types
   className = '',
   ...props
 }) => {

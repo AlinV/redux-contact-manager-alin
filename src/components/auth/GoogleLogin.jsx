@@ -8,7 +8,11 @@ export const GoogleLogin = () => {
   useEffect(() => {
     if (buttonRef.current !== null) {
       const af = async () => {
-        await initializeGoogleAuth();
+        try {
+          await initializeGoogleAuth();
+        } catch (error) {
+          console.log(error);
+        }
 
         window.google.accounts.id.renderButton(buttonRef.current, {
           theme: 'outline',
